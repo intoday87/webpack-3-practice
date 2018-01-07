@@ -1,0 +1,8 @@
+node_modules/
+
+# webpack distribute bundle files. see config files under ./webpack
+dist/
+
+npm-debug.log
+
+.idea/
