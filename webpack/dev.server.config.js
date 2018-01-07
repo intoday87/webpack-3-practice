@@ -9,18 +9,18 @@ export default {
   entry: {
     main: [
       'webpack-hot-middleware/client',
-      resolve('example', 'index.js')
-    ]
+      resolve('example', 'index.js'),
+    ],
   },
   output: {
     path: resolve('examples'),
     filename: '[name]/[hash].js',
     chunkFilename: '[name]/[chunkhash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
     ...plugins,
     new HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin()
-  ]
+    new HtmlWebpackPlugin(),
+  ],
 };

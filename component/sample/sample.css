@@ -1,0 +1,4 @@
+.sample {
+    transform: rotateX(150deg);
+    background: radial-gradient(circle, red, yellow, green);
+}
