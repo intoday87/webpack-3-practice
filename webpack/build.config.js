@@ -3,7 +3,10 @@ import base, { plugins } from './base.config';
 
 export default {
   ...base,
-  entry: resolve('entry/index'),
+  entry: {
+    sample: resolve('entry/sample'),
+    'react-sample': resolve('entry/react-sample'),
+  },
   output: {
     path: resolve('dist'),
     filename: '[name].bundle.js',

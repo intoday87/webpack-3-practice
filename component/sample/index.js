@@ -3,5 +3,5 @@ import hbs from './sample.hbs';
 
 export default () => hbs({
   css,
-  title: 'sample',
+  title: 'hbs sample',
 });

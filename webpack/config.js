@@ -1,2 +1,2 @@
 require('babel-register');
-module.exports = require('./base.config');
+module.exports = require('./build.config');

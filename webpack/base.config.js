@@ -1,6 +1,5 @@
-import {resolve} from 'path';
-import {NoEmitOnErrorsPlugin, DefinePlugin} from 'webpack';
 import autoprefixer from 'autoprefixer';
+import { NoEmitOnErrorsPlugin, DefinePlugin } from 'webpack';
 
 export const plugins = [
   new NoEmitOnErrorsPlugin(),
@@ -11,18 +10,18 @@ export const plugins = [
     },
     Platform: {
       OS: JSON.stringify('browser'),
-    }
-  })
+    },
+  }),
 ];
 
 const rules = [
   {
-    test: /\.js$/,
-    exclude: [
-      resolve('node_modules'),
-      resolve('dist'),
+    test: /\.jsx?$/,
+    exclude: /node_modules/,
+    use: [
+      'babel-loader',
+      'eslint-loader',
     ],
-    use: 'eslint-loader',
   },
   {
     test: /\.css$/,
@@ -35,18 +34,18 @@ const rules = [
           modules: true,
           sourceMap: true,
           importLoaders: 1,
-        }
+        },
       },
       {
         loader: 'postcss-loader',
         options: {
           indent: 'postcss',
           plugins: [
-            autoprefixer({browsers: '> 5%'})
-          ]
-        }
+            autoprefixer({ browsers: '> 5%' }),
+          ],
+        },
       },
-    ]
+    ],
   },
   {
     test: /\.hbs$/,
@@ -55,7 +54,10 @@ const rules = [
 ];
 
 export default {
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
-    rules
+    rules,
   },
 };
