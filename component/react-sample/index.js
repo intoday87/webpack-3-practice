@@ -1,9 +1,17 @@
 import React from 'react';
+import classNames from 'classnames/bind';
+import Radio from './radio-button';
 
-export default class Sample extends React.Component {
-  render() {
-    return (
-      <div>hello world!! react sample</div>
-    );
-  }
-}
+const cx = classNames.bind(require('./react-sample.css'));
+
+export default () => (
+  <div>
+    <label>
+      <Radio
+        onClick={() => alert('clicked')}
+        // className={cx('override')}
+      />
+      hello world!! react sample
+    </label>
+  </div>
+);
