@@ -13,7 +13,7 @@ module.exports = {
     'no-console': ['error', {allow: ['log']}],
     'class-methods-use-this': ['warn'],
     'no-unused-vars': ['warn'],
-    'react/display-name': ['off', {"ignoreTranspilerName": false}],
+    'react/display-name': ['off', {ignoreTranspilerName: false}],
   },
   parserOptions: {
     ecmaFeatures: {
