@@ -1,0 +1,3 @@
+--compilers js:babel-register
+--check-leaks
+test-bundle/bundle.js

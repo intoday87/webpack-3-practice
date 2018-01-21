@@ -1,8 +1,8 @@
 import React from 'react';
-import classNames from 'classnames/bind';
+// import classNames from 'classnames/bind';
 import Radio from './radio-button';
 
-const cx = classNames.bind(require('./react-sample.css'));
+// const cx = classNames.bind(require('./react-sample.css'));
 
 export default () => (
   <div>

@@ -18,6 +18,6 @@ $(() => {
   );
 
   $(`<div id="${hbsSampleId}"></div>`).appendTo('body');
-  $(`#${hbsSampleId}`).append(HbsSample());
+  $(`#${hbsSampleId}`).append(HbsSample.build());
 });
 
