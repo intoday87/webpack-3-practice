@@ -1,6 +1,6 @@
 import { resolve } from 'path';
-import base, { plugins } from './base.config';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
+import base, { plugins } from './base.config';
 
 export default {
   ...base,

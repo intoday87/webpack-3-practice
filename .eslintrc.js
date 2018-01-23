@@ -12,8 +12,9 @@ module.exports = {
     }],
     'no-console': ['error', {allow: ['log']}],
     'class-methods-use-this': ['warn'],
-    'no-unused-vars': ['warn'],
+    'no-unused-vars': ['error'],
     'react/display-name': ['off', {ignoreTranspilerName: false}],
+    semi: ["error", "always"],
   },
   parserOptions: {
     ecmaFeatures: {
