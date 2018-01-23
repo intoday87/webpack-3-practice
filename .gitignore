@@ -6,3 +6,7 @@ dist/
 npm-debug.log
 
 .idea/
+
+ci/
+!ci/test-results.xml
+.nyc_output

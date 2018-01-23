@@ -1,5 +1,5 @@
 import autoprefixer from 'autoprefixer';
-import { NoEmitOnErrorsPlugin, DefinePlugin } from 'webpack';
+import {NoEmitOnErrorsPlugin, DefinePlugin} from 'webpack';
 
 export const plugins = [
   new NoEmitOnErrorsPlugin(),
@@ -41,7 +41,7 @@ const rules = [
         options: {
           indent: 'postcss',
           plugins: [
-            autoprefixer({ browsers: '> 5%' }),
+            autoprefixer({browsers: '> 5%'}),
           ],
         },
       },
@@ -56,6 +56,10 @@ const rules = [
 export default {
   resolve: {
     extensions: ['.js', '.jsx'],
+    modules: [
+      'node_modules',
+      'component',
+    ],
   },
   module: {
     rules,

@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import base, { plugins } from './base.config';
+import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 
 export default {
   ...base,
@@ -13,5 +14,10 @@ export default {
   },
   plugins: [
     ...plugins,
+    new UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      }
+    }),
   ],
 };

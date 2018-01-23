@@ -1,11 +1,18 @@
-import {resolve} from 'path';
-import webpack from 'webpack';
-import postcssImport from 'postcss-import';
+import {NoEmitOnErrorsPlugin, DefinePlugin} from 'webpack';
 import webpackNodeExternal from 'webpack-node-externals';
-import autoprefixer from 'autoprefixer';
-import eslintFommatter from 'eslint-friendly-formatter';
 
-const context = resolve(__dirname, '..');
+export const plugins = [
+  new NoEmitOnErrorsPlugin(),
+  new DefinePlugin({
+    'process.env': {
+      PROFILE: JSON.stringify(process.env.PROFILE),
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    },
+    Platform: {
+      OS: JSON.stringify('node'),
+    },
+  }),
+];
 
 const rules = [
   {
@@ -16,10 +23,9 @@ const rules = [
       {
         loader: 'eslint-loader',
         options: {
-          formatter: eslintFommatter,
-          failOnError: true
+          failOnError: true,
         },
-      }
+      },
     ],
   },
   {
@@ -32,20 +38,7 @@ const rules = [
         loader: 'css-loader',
         options: {
           modules: true,
-          sourceMap: true,
           importLoaders: 1,
-        },
-      },
-      {
-        loader: 'postcss-loader',
-        options: {
-          indent: 'postcss',
-          plugins: [
-            postcssImport({
-              addDependencyTo: webpack
-            }),
-            autoprefixer({browsers: '> 5%'}),
-          ],
         },
       },
     ],
@@ -57,7 +50,7 @@ const rules = [
 ];
 
 export default {
-  context: context,
+  context: __dirname,
   target: 'node',
   resolve: {
     modules: [
@@ -69,7 +62,6 @@ export default {
   module: {
     rules
   },
-
   /**
    * test 환경에서 webpack은 node 환경에서 실행되기 때문에 browser 환경의 불필요한 것들을 로딩하게 된다.
    *
@@ -81,4 +73,5 @@ export default {
       'window': 'var global',
     }
   ],
+  plugins,
 };
