@@ -7,6 +7,5 @@ const a = {
 
 export default () => {
   window.console.log(a);
-  $('body').html('hello world');
   $('body').append(sample.build());
 };

@@ -1,5 +1,4 @@
 import { resolve } from 'path';
-import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import base, { plugins } from './base.config';
 
 export default {
@@ -7,17 +6,14 @@ export default {
   entry: {
     sample: resolve('entry/sample'),
     'react-sample': resolve('entry/react-sample'),
+    'redux-react-sample': resolve('entry/redux-react-sample'),
   },
   output: {
+    library: 'MyExports',
     path: resolve('dist'),
     filename: '[name].bundle.js',
   },
   plugins: [
     ...plugins,
-    new UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      }
-    }),
   ],
 };
