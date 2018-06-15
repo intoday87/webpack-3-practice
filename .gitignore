@@ -10,3 +10,6 @@ npm-debug.log
 ci/
 !ci/test-results.xml
 .nyc_output
+
+
+package-lock.json

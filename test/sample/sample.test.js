@@ -1,15 +1,12 @@
-import sinon from 'sinon';
-import should from 'should';
 import $ from 'jquery';
 import sample from '../../component/sample';
 
+jest.mock('jquery');
+
 describe('sample', () => {
-
   it('#build', () => {
-    sinon.stub($, 'get');
-
     sample.build();
 
-    $.get.calledWith('/hello').should.be.true();
+    expect($.get.mock.calls[0][0]).toBe('/hello');
   });
 });

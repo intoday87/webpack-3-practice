@@ -1,4 +1,0 @@
---require babel-core/register
---require jsdom-global/register
---check-leaks
-test/**/*.test.js
