@@ -6,10 +6,8 @@ import ReactSample from '../component/react-sample';
 import HbsSample from '../component/sample';
 
 $(() => {
-  const reactSampleId = 'react-sample';
   const hbsSampleId = 'hbs-sample';
 
-  $(`<div id="${reactSampleId}"></div>`).appendTo('body');
   render(
     <div>
       <ReactSample />
